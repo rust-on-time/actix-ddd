@@ -5,7 +5,8 @@ use std::sync::Arc;
 use crate::{
     domain::{entities::User, repositories::UserRepository},
     infrastructure::db::connection::{establish_connection, DBPool},
-    schema::{users::dsl::users, users::email, users::table},
+    presentation::handlers::NewUser,
+    schema::users::{dsl::users, email, table},
 };
 
 #[derive(Clone)]
@@ -37,7 +38,7 @@ impl UserRepository for Arc<PgUserRepository> {
             .optional()
             .expect("Error loading user")
     }
-    async fn save(&self, user: &User) -> Result<(), diesel::result::Error> {
+    async fn save(&self, user: &NewUser) -> Result<(), diesel::result::Error> {
         diesel::insert_into(table)
             .values(user)
             .execute(&mut self.pool.get().unwrap())
