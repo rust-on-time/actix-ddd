@@ -42,7 +42,7 @@ pub async fn find_user_by_email(
         Some(user) => HttpResponse::Ok().json(user),
         None => {
             error!("Cant find user email");
-            HttpResponse::InternalServerError().body("Please Try again!")
+            HttpResponse::InternalServerError().body("Cannot find User with that email!")
         }
     }
 }
