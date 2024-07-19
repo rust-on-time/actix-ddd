@@ -1,4 +1,7 @@
-use crate::domain::{entities::User, repositories::UserRepository};
+use crate::{
+    domain::{entities::User, repositories::UserRepository},
+    presentation::handlers::NewUser,
+};
 
 pub struct UserService<T>
 where
@@ -14,7 +17,7 @@ impl<T: UserRepository> UserService<T> {
         }
     }
 
-    pub async fn register(&self, user: &User) -> Result<(), diesel::result::Error> {
+    pub async fn register(&self, user: &NewUser) -> Result<(), diesel::result::Error> {
         self.user_repo.save(user).await
     }
 
