@@ -3,9 +3,9 @@ use diesel::{ExpressionMethods, OptionalExtension, QueryDsl, RunQueryDsl};
 use std::sync::Arc;
 
 use crate::{
+    application::dto::NewUser,
     domain::{entities::User, repositories::UserRepository},
     infrastructure::db::connection::{establish_connection, DBPool},
-    presentation::handlers::NewUser,
     schema::users::{dsl::users, email, table},
 };
 
