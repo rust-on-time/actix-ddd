@@ -1,6 +1,4 @@
-use crate::domain::{
-    entities::User, repositories::UserRepository, services::user_service::UserService,
-};
+use crate::domain::{entities::User, repositories::UserRepository, services::UserService};
 
 pub struct GetUserUseCase<T: UserRepository> {
     user_service: UserService<T>,
