@@ -1,1 +1,2 @@
-pub mod pg_user_repository;
+mod pg_user_repository;
+pub use pg_user_repository::PgUserRepository;
