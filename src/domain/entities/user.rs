@@ -1,7 +1,7 @@
-use diesel::deserialize::Queryable;
+use diesel::{deserialize::Queryable, Selectable};
 use serde::Serialize;
 
-#[derive(Debug, Serialize, Queryable, Clone)]
+#[derive(Debug, Serialize, Queryable, Selectable, Clone)]
 #[diesel(table_name = crate::schema::users)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct User {
