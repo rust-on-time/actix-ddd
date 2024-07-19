@@ -12,7 +12,7 @@ impl<T: UserRepository> GetUserUseCase<T> {
         GetUserUseCase { user_service }
     }
 
-    pub async fn get(&self, email: &str) -> Option<User> {
+    pub async fn exec(&self, email: &str) -> Option<User> {
         self.user_service.find_by_email(email).await
     }
 }
