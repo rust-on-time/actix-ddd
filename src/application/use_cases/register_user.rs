@@ -1,5 +1,6 @@
-use crate::domain::{
-    entities::User, repositories::UserRepository, services::user_service::UserService,
+use crate::{
+    domain::{repositories::UserRepository, services::UserService},
+    presentation::handlers::NewUser,
 };
 
 pub struct RegisterUserUseCase<T: UserRepository> {
@@ -12,7 +13,7 @@ impl<T: UserRepository> RegisterUserUseCase<T> {
         RegisterUserUseCase { user_service }
     }
 
-    pub async fn get(&self, user: &User) -> Result<(), diesel::result::Error> {
+    pub async fn exec(&self, user: &NewUser) -> Result<(), diesel::result::Error> {
         self.user_service.register(user).await
     }
 }
