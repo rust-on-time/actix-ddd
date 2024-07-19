@@ -10,7 +10,7 @@ use crate::{
         dto::NewUser,
         use_cases::{GetUserUseCase, RegisterUserUseCase},
     },
-    infrastructure::repositories::pg_user_repository::PgUserRepository,
+    infrastructure::repositories::PgUserRepository,
 };
 
 #[post("/")]
