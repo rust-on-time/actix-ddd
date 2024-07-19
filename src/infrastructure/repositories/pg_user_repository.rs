@@ -41,8 +41,7 @@ impl UserRepository for Arc<PgUserRepository> {
     async fn save(&self, user: &NewUser) -> Result<(), diesel::result::Error> {
         diesel::insert_into(table)
             .values(user)
-            .execute(&mut self.pool.get().unwrap())
-            .unwrap();
+            .execute(&mut self.pool.get().unwrap())?;
 
         Ok(())
     }
