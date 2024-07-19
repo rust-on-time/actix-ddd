@@ -1,6 +1,6 @@
 use actix_web::web::{self, ServiceConfig};
 
-use crate::presentation::handlers::user_handler::{find_user_by_email, register_user_handler};
+use crate::presentation::handlers::{find_user_by_email, register_user_handler};
 
 pub fn routes(config: &mut ServiceConfig) {
     config.service(
