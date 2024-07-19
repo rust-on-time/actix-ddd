@@ -1,6 +1,6 @@
 use crate::{
+    application::dto::NewUser,
     domain::{repositories::UserRepository, services::UserService},
-    presentation::handlers::NewUser,
 };
 
 pub struct RegisterUserUseCase<T: UserRepository> {
