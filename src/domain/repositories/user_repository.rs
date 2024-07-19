@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 
-use crate::{domain::entities::User, presentation::handlers::NewUser};
+use crate::{application::dto::NewUser, domain::entities::User};
 
 #[async_trait]
 pub trait UserRepository {
