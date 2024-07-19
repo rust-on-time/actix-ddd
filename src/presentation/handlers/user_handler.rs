@@ -3,24 +3,15 @@ use actix_web::{
     web::{self, Path},
     HttpResponse,
 };
-use diesel::prelude::Insertable;
 use log::error;
-use serde::Deserialize;
 
 use crate::{
-    application::use_cases::{get_user::GetUserUseCase, register_user::RegisterUserUseCase},
+    application::{
+        dto::NewUser,
+        use_cases::{GetUserUseCase, RegisterUserUseCase},
+    },
     infrastructure::repositories::pg_user_repository::PgUserRepository,
-    schema::users,
 };
-
-#[derive(Debug, Clone, Deserialize, Insertable)]
-#[diesel(table_name = users)]
-pub struct NewUser {
-    pub name: String,
-    pub email: String,
-    pub phone: String,
-    pub address: String,
-}
 
 #[post("/")]
 pub async fn register_user_handler(
