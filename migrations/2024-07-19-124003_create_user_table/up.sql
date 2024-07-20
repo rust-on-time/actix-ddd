@@ -9,3 +9,5 @@ CREATE TABLE users (
 );
 
 CREATE INDEX index_users_on_email ON users (email);
+
+SELECT diesel_manage_updated_at('users');
