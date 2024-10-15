@@ -4,11 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-actix-web = "4.8.0"
-async-trait = "0.1.81"
-diesel = { version = "2.2.2", features = ["postgres", "r2d2"] }
+actix-web = "4.9.0"
+async-trait = "0.1.83"
+diesel = { version = "2.2.4", features = ["postgres", "r2d2"] }
 dotenv = "0.15.0"
-env_logger = "0.11.3"
+env_logger = "0.11.5"
 log = "0.4.22"
 r2d2 = "0.8.10"
-serde = { version = "1.0.204", features = ["derive"] }
+serde = { version = "1.0.210", features = ["derive"] }
